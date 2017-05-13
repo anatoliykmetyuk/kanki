@@ -17,7 +17,7 @@ object API {
 
   implicit def tryToError[A](t: Try[A]): Error[A] = t match {
     case Success(res) => Right(res)
-    case Failure(t  ) => Left(s"Exception happened: ${t.getMessage}. Stack trace: ${t.getStackTrace.mkString("\n")}")
+    case Failure(t  ) => Left(s"Exception happened: ${t.getMessage}. Stack trace: ${t.getStackTrace.mkString("\r\n")}")
   }
 
   def encode(str: String): Error[String] =
@@ -111,7 +111,7 @@ object API {
   }
 
   def appendToFile(f: File, str: String): Error[Unit] =
-    Try { FileUtils.write(f, str + '\n', "utf8", true) }
+    Try { FileUtils.write(f, str + "\r\n", "utf8", true) }
 }
 
 case class Entry(
