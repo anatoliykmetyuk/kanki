@@ -1,1 +1,1 @@
-Simple Sbt project with Scala.
+An application to assist in learning Korean with Anki. Translates lists of Korean words.
